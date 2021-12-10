@@ -35,13 +35,13 @@ resource "env0_project_policy" "policy" {
 
 # using the data resource to get the credential ID
 data "env0_aws_credentials" "credentials" {
-    for_each = var.projects
-    name = each.value.credential
+  for_each = var.projects
+  name     = each.value.credential
 }
 
 # configure the project with the proper credentials
 resource "env0_cloud_credentials_project_assignment" "credential_project" {
-  for_each = var.projects
+  for_each      = var.projects
   project_id    = env0_project.project[each.key].id
   credential_id = data.env0_aws_credentials.credentials[each.key].id
 }

@@ -59,14 +59,16 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [env0_cloud_credentials_project_assignment.credential_project](https://registry.terraform.io/providers/env0/env0/0.0.20/docs/resources/cloud_credentials_project_assignment) | resource |
 | [env0_project.project](https://registry.terraform.io/providers/env0/env0/0.0.20/docs/resources/project) | resource |
 | [env0_project_policy.policy](https://registry.terraform.io/providers/env0/env0/0.0.20/docs/resources/project_policy) | resource |
+| [env0_aws_credentials.credentials](https://registry.terraform.io/providers/env0/env0/0.0.20/docs/data-sources/aws_credentials) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_projects"></a> [projects](#input\_projects) | map of object with names and descriptions e.g. {dev0={name="dev",description="this is my dev project",policy=local.devpolicy}} | <pre>map(<br>    object({<br>      name        = string<br>      description = string<br>      policy = object({<br>        continuous_deployment_default = optional(bool)<br>        disable_destroy_environments  = bool<br>        include_cost_estimation       = bool<br>        number_of_environments        = string<br>        number_of_environments_total  = string<br>        requires_approval_default     = bool<br>        run_pull_request_plan_default = bool<br>        skip_apply_when_plan_is_empty = bool<br>        skip_redundant_deployments    = bool<br>      })<br>    })<br>  )</pre> | n/a | yes |
+| <a name="input_projects"></a> [projects](#input\_projects) | map of object with names, descriptions, credentials and policies e.g. {dev0={name="dev",description="this is my dev project",credential="aws dev",policy=local.devpolicy}} | <pre>map(<br>    object({<br>      name        = string<br>      description = string<br>      credential  = string<br>      policy = object({<br>        continuous_deployment_default = optional(bool)<br>        disable_destroy_environments  = bool<br>        include_cost_estimation       = bool<br>        number_of_environments        = string<br>        number_of_environments_total  = string<br>        requires_approval_default     = bool<br>        run_pull_request_plan_default = bool<br>        skip_apply_when_plan_is_empty = bool<br>        skip_redundant_deployments    = bool<br>      })<br>    })<br>  )</pre> | n/a | yes |
 
 ## Outputs
 
