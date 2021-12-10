@@ -69,15 +69,15 @@ variable "projects" {
 #   description = "project policy"
 
 #   default = {
-    # continuous_deployment_default = true
-    # disable_destroy_environments  = false
-    # include_cost_estimation       = true
-    # number_of_environments        = "3"
-    # number_of_environments_total  = "10"
-    # requires_approval_default     = true
-    # run_pull_request_plan_default = true
-    # skip_apply_when_plan_is_empty = true
-    # skip_redundant_deployments    = true
+# continuous_deployment_default = true
+# disable_destroy_environments  = false
+# include_cost_estimation       = true
+# number_of_environments        = "3"
+# number_of_environments_total  = "10"
+# requires_approval_default     = true
+# run_pull_request_plan_default = true
+# skip_apply_when_plan_is_empty = true
+# skip_redundant_deployments    = true
 #   }
 # }
 
