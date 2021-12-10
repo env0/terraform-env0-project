@@ -1,4 +1,4 @@
-[<img src="https://assets-global.website-files.com/5ceab5395d0f478e169de7c0/5ceab5395d0f4742dd9de7d0_Env0-Color%202.svg" alt="env0 Logo" width="300">](https://env0.com)
+[<img src="https://assets-global.website-files.com/5dc3f52851595b160ba99670/6037a6f27d9050ef91b90a86_env0-opengraph%402x.png" alt="env0 Logo" width="300">](https://env0.com)
 
 # Terraform env0 Project Module
 Using the env0 TF provider to create an env0 Project along with configuring the project policy.
