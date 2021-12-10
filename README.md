@@ -1,7 +1,25 @@
-# terraform-env0-project
-env0 project terraform module
+[<img src="https://assets-global.website-files.com/5ceab5395d0f478e169de7c0/5ceab5395d0f4742dd9de7d0_Env0-Color%202.svg" alt="env0 Logo" width="300">](https://env0.com)
 
-each project should be supplied a project policy
+# Terraform env0 Project Module
+Using the env0 TF provider to create an env0 Project along with configuring the project policy.
+
+example projects variable
+```
+projects={
+  dev0 = {
+    name = "Team A - Dev"
+    description = "Team A's Dev Instance"
+  }
+  dev1 = {
+    name = "Team B - Dev"
+    description = "Team B's Dev Instance"
+  }
+  dev2 = {
+    name = "Team C - Prod"
+    description = "Team C's Dev Instance"
+  }
+}
+```
 
 example policy
 ```
