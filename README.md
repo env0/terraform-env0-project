@@ -9,33 +9,41 @@ example projects variable
 ```
 projects={
   dev0 = {
-    name = "Team A - Dev"
+    name        = "Team A - Dev"
     description = "Team A's Dev Instance"
+    credential  = "dev creds"
+    policy      = local.dev_policy
   }
   dev1 = {
     name = "Team B - Dev"
     description = "Team B's Dev Instance"
+    credential  = "dev creds"
+    policy      = local.dev_policy
   }
-  dev2 = {
-    name = "Team C - Prod"
-    description = "Team C's Dev Instance"
+  prod0 = {
+    name = "Team A - Prod"
+    description = "Team A's Prod Instance"
+    credential  = "prod creds"
+    policy      = local.prod_policy
   }
 }
 ```
 
 example policy
 ```
+locals {
   policy = {
     "disable_destroy_environments"  = false
     "include_cost_estimation"       = true
     "number_of_environments"        = "3"
     "number_of_environments_total"  = "10"
-    "requires_approval_default"     = "false"
+    "requires_approval_default"     = false
     "skip_apply_when_plan_is_empty" = true
     "skip_redundant_deployments"    = true
     "continuous_deployment_default" = true 
-    "run_pull_request_plan_default" = false  
+    "run_pull_request_plan_default" = true  
   }
+}
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
