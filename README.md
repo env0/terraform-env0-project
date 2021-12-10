@@ -3,6 +3,8 @@
 # Terraform env0 Project Module
 Using the env0 TF provider to create an env0 Project along with configuring the project policy.
 
+Each project will use the same policy
+
 example projects variable
 ```
 projects={
