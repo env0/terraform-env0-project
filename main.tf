@@ -2,7 +2,7 @@ terraform {
   required_providers {
     env0 = {
       source  = "env0/env0"
-      version = "0.2.24"
+      version = "> 0.2.24"
     }
   }
   experiments = [module_variable_optional_attrs]
