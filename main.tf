@@ -1,21 +1,14 @@
-terraform {
-  required_providers {
-    env0 = {
-      source  = "env0/env0"
-      version = "> 0.2.24"
-    }
-  }
-  experiments = [module_variable_optional_attrs]
-}
-
-provider "env0" {
-}
-
 # create the project with the name and description
 resource "env0_project" "project" {
   for_each    = var.projects
   name        = each.value.name
   description = each.value.description
+  parent_project_id = (each.value.parent_project == null ? null : data.env0_project.parent[each.key].id) 
+}
+
+data "env0_project" "parent" {
+  for_each = var.projects
+  name = (each.value.parent_project == null ? "" : each.value.parent_project)
 }
 
 # configure the policy for each project
@@ -46,37 +39,5 @@ resource "env0_cloud_credentials_project_assignment" "credential_project" {
   credential_id = data.env0_aws_credentials.credentials[each.key].id
 }
 
-###
-#  projects variable split into four main fields
-#    * name (string) - the name of the project as shown in the UI
-#    * description (string) - the description of the project as shown in the UI
-#    * credential (string) - the name of the credential (AWS Assume Role) assigned to the Project
-#    * policy (object) - the project policy settings
-###
-variable "projects" {
-  type = map(
-    object({
-      name        = string
-      description = string
-      credential  = string
-      policy = object({
-        continuous_deployment_default = optional(bool)
-        disable_destroy_environments  = bool
-        include_cost_estimation       = bool
-        number_of_environments        = string
-        number_of_environments_total  = string
-        requires_approval_default     = bool
-        run_pull_request_plan_default = bool
-        skip_apply_when_plan_is_empty = bool
-        skip_redundant_deployments    = bool
-      })
-    })
-  )
-  description = "map of object with names, descriptions, credentials and policies e.g. {dev0={name=\"dev\",description=\"this is my dev project\",credential=\"aws dev\",policy=local.devpolicy}}"
-}
 
-output "id" {
-  value = {
-    for k, v in env0_project.project : k => v.id
-  }
-}
+
