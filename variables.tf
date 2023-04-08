@@ -24,10 +24,8 @@ variable "projects" {
       }))
       team_role_assignments = optional(map(
         object({
-          team_name = string
+          team_name        = string
           custom_role_name = string
-          # team_id        = string
-          # custom_role_id = string
         })
       ))
       sub_projects = optional(map(
@@ -48,8 +46,8 @@ variable "projects" {
           }))
           team_role_assignments = optional(map(
             object({
-              team = string
-              role = string
+              team_name        = string
+              custom_role_name = string
             })
           ))
         })

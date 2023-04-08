@@ -4,12 +4,12 @@ projects = {
     description = "Team A"
     team_role_assignments = {
       a = {
-        team_name = "Admin Team"
+        team_name        = "Admin Team"
         custom_role_name = "Project Admins"
       }
       b = {
-        team_name = "Dev Team"
-        custom_role_name = "Engineers" 
+        team_name        = "Dev Team"
+        custom_role_name = "Engineers"
       }
       # a = {
       #   team_id        = "b532e1fb-8c34-40cd-bf42-c01b33c0b5b4" # admin team
@@ -24,14 +24,44 @@ projects = {
       dev = {
         name        = "Team A - Dev"
         description = "Team A's Dev Instance"
+        team_role_assignments = {
+          a = {
+            team_name        = "Admin Team"
+            custom_role_name = "Project Admins"
+          }
+          b = {
+            team_name        = "Dev Team"
+            custom_role_name = "Engineers"
+          }
+        }
       }
       qa = {
         name        = "Team A - QA"
         description = "Team B's Dev Instance"
+        team_role_assignments = {
+          a = {
+            team_name        = "Admin Team"
+            custom_role_name = "Project Admins"
+          }
+          b = {
+            team_name        = "Dev Team"
+            custom_role_name = "Engineers"
+          }
+        }
       }
       prod = {
         name        = "Team A - Prod"
         description = "Team A's Prod Instance"
+        team_role_assignments = {
+          a = {
+            team_name        = "Admin Team"
+            custom_role_name = "Project Admins"
+          }
+          b = {
+            team_name        = "Dev Team"
+            custom_role_name = "Engineers"
+          }
+        }
       }
     } # credential  = ""
     # policy = {
