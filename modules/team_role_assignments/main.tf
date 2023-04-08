@@ -19,6 +19,6 @@ resource "env0_team_project_assignment" "this" {
 locals {
   ## trick to make list into a map, so that its more resilient to order changes
   team_role_assignments = (var.team_role_assignments == null) ? {} : {
-    for k,v in var.team_role_assignments : v.team_name => v
+    for k, v in var.team_role_assignments : v.team_name => v
   }
 }

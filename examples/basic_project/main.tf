@@ -15,7 +15,7 @@ module "my_projects" {
 
   projects = {
     teama = {
-      name = "Team A"
+      name        = "Team A"
       description = "project for Team A"
       sub_projects = {
         a1 = {
@@ -27,7 +27,7 @@ module "my_projects" {
       }
     }
     teamb = {
-      name = "Team B"
+      name        = "Team B"
       description = "project for Team B"
       sub_projects = {
         b1 = {
@@ -39,7 +39,7 @@ module "my_projects" {
       }
     }
     teamc = {
-      name = "Team C"
+      name        = "Team C"
       description = "project for Team C"
     }
   }
