@@ -5,7 +5,6 @@
 #    * credential (string) - the name of the credential (AWS Assume Role) assigned to the Project
 #    * policy (object) - the project policy settings
 ###
-
 variable "projects" {
   type = map(
     object({
@@ -25,8 +24,10 @@ variable "projects" {
       }))
       team_role_assignments = optional(map(
         object({
-          team = string
-          role = string
+          team_name = string
+          custom_role_name = string
+          # team_id        = string
+          # custom_role_id = string
         })
       ))
       sub_projects = optional(map(
