@@ -14,6 +14,6 @@ output "projects" {
 
 output "sub_projects" {
   value = {
-    for k,v in var.projects : k => module.sub_project[k].projects
+    for k, v in var.projects : k => module.sub_project[k].projects
   }
 }

@@ -1,5 +1,5 @@
 resource "env0_project" "project" {
-  for_each = var.projects
+  for_each = local.projects
 
   name              = each.value.name
   description       = each.value.description
@@ -7,11 +7,15 @@ resource "env0_project" "project" {
 }
 
 module "team_role_assignments" {
-  for_each = var.projects
+  for_each = local.projects
 
   source                = "../team_role_assignments"
   project_id            = env0_project.project[each.key].id
   team_role_assignments = each.value.team_role_assignments
+}
+
+locals {
+  projects = (var.projects == null) ? {} : var.projects
 }
 
 # # configure the policy for each project

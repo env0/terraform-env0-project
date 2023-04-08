@@ -25,6 +25,3 @@ module "sub_project" {
 #   project_id            = env0_project.project[each.key].id
 #   team_role_assignments = each.value.team_role_assignments
 # }
-
-
-

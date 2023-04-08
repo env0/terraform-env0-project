@@ -22,7 +22,7 @@ variable "projects" {
         skip_apply_when_plan_is_empty = optional(bool)
         skip_redundant_deployments    = optional(bool)
       }))
-      team_role_assignments = optional(map(
+      team_role_assignments = optional(list(
         object({
           team_name        = string
           custom_role_name = string
@@ -44,7 +44,7 @@ variable "projects" {
             skip_apply_when_plan_is_empty = optional(bool)
             skip_redundant_deployments    = optional(bool)
           }))
-          team_role_assignments = optional(map(
+          team_role_assignments = optional(list(
             object({
               team_name        = string
               custom_role_name = string

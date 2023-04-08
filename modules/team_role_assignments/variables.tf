@@ -1,5 +1,5 @@
 variable "team_role_assignments" {
-  type = map(
+  type = list(
     object({
       team_name        = string
       custom_role_name = string

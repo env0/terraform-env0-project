@@ -2,57 +2,53 @@ projects = {
   teama = {
     name        = "Team A"
     description = "Team A"
-    team_role_assignments = {
-      a = {
+    team_role_assignments = [
+      {
         team_name        = "Admin Team"
         custom_role_name = "Project Admins"
-      }
-      b = {
-        team_name        = "Dev Team"
-        custom_role_name = "Engineers"
-      }
-    }
+      },
+    ]
     sub_projects = {
       dev = {
         name        = "Team A - Dev"
         description = "Team A's Dev Instance"
-        team_role_assignments = {
-          a = {
+        team_role_assignments = [
+          {
             team_name        = "Admin Team"
             custom_role_name = "Project Admins"
-          }
-          b = {
+          },
+          {
             team_name        = "Dev Team"
-            custom_role_name = "Engineers"
+            custom_role_name = "Project Admins"
           }
-        }
+        ]
       }
       qa = {
         name        = "Team A - QA"
         description = "Team B's Dev Instance"
-        team_role_assignments = {
-          a = {
+        team_role_assignments = [
+          {
             team_name        = "Admin Team"
             custom_role_name = "Project Admins"
-          }
-          b = {
+          },
+          {
             team_name        = "Dev Team"
             custom_role_name = "Engineers"
           }
-        }
+        ]
       }
       prod = {
         name        = "Team A - Prod"
         description = "Team A's Prod Instance"
-        team_role_assignments = {
-          a = {
+        team_role_assignments = [
+          {
             team_name        = "Admin Team"
             custom_role_name = "Project Admins"
           }
-        }
+        ]
       }
-    } 
-    
+    }
+
     # credential  = ""
     # policy = {
     #   "disable_destroy_environments"  = false
