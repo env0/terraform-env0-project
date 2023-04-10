@@ -14,6 +14,8 @@ variable "projects" {
         run_pull_request_plan_default = optional(bool)
         skip_apply_when_plan_is_empty = optional(bool)
         skip_redundant_deployments    = optional(bool)
+        default_ttl                   = optional(string)
+        max_ttl                       = optional(string)
       }))
       team_role_assignments = optional(list(
         object({
