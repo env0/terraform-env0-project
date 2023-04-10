@@ -14,8 +14,27 @@ module "team_role_assignments" {
   team_role_assignments = each.value.team_role_assignments
 }
 
+# using the data resource to get the credential ID
+data "env0_aws_credentials" "credentials" {
+  for_each = local.credentials
+  name     = each.value.credential
+}
+
+# configure the project with the proper credentials
+resource "env0_cloud_credentials_project_assignment" "credential_project" {
+  for_each      = local.credentials
+  project_id    = env0_project.project[each.key].id
+  credential_id = data.env0_aws_credentials.credentials[each.key].id
+}
+
 locals {
   projects = (var.projects == null) ? {} : var.projects
+  credentials = {
+    for k,v in var.projects : k => {
+      credential = v.credential
+    }
+    if v.credential != null 
+  }
 }
 
 # # configure the policy for each project
@@ -31,17 +50,4 @@ locals {
 #   run_pull_request_plan_default = each.value.policy.run_pull_request_plan_default
 #   skip_apply_when_plan_is_empty = each.value.policy.skip_apply_when_plan_is_empty
 #   skip_redundant_deployments    = each.value.policy.skip_redundant_deployments
-# }
-
-# # using the data resource to get the credential ID
-# data "env0_aws_credentials" "credentials" {
-#   for_each = var.projects
-#   name     = each.value.credential
-# }
-
-# # configure the project with the proper credentials
-# resource "env0_cloud_credentials_project_assignment" "credential_project" {
-#   for_each      = var.projects
-#   project_id    = env0_project.project[each.key].id
-#   credential_id = data.env0_aws_credentials.credentials[each.key].id
 # }
