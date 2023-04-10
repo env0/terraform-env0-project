@@ -2,6 +2,7 @@ projects = {
   teama = {
     name        = "Team A"
     description = "Team A"
+    credential  = "arn:aws:iam::244172364962:role/acme-fitness-deployer"
     team_role_assignments = [
       {
         team_name        = "Admin Team"
@@ -12,6 +13,7 @@ projects = {
       dev = {
         name        = "Team A - Dev"
         description = "Team A's Dev Instance"
+        credential  = "arn:aws:iam::244172364962:role/acme-fitness-deployer"
         team_role_assignments = [
           {
             team_name        = "Admin Team"
@@ -49,7 +51,6 @@ projects = {
       }
     }
 
-    # credential  = ""
     # policy = {
     #   "disable_destroy_environments"  = false
     #   "include_cost_estimation"       = true
