@@ -47,13 +47,13 @@ resource "env0_project_policy" "policy" {
 locals {
   projects = (var.projects == null) ? {} : var.projects
   credentials = {
-    for k,v in var.projects : k => {
+    for k,v in local.projects : k => {
       credential = v.credential
     }
     if v.credential != null 
   }
   policies = {
-    for k,v in var.projects : k => {
+    for k,v in local.projects : k => {
       policy = v.policy
     }
     if v.policy != null 
