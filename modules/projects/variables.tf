@@ -20,7 +20,8 @@ variable "projects" {
       team_role_assignments = optional(list(
         object({
           team_name        = string
-          custom_role_name = string
+          custom_role_name = optional(string)
+          role             = optional(string)
         })
       ))
     })
