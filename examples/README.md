@@ -4,7 +4,7 @@
 [basic_project](basic_project/README.md)
 
 ## Deploying Projects w/ Policies and Credentials
-TBD
+[complete](complete/README.md)
 
 ## Deploying Projects with Team assignments & Role Assignments
 [project example](project_w_role_assignments/README.md)
