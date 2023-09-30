@@ -41,22 +41,22 @@ resource "env0_project_policy" "policy" {
   skip_apply_when_plan_is_empty = each.value.policy.skip_apply_when_plan_is_empty
   skip_redundant_deployments    = each.value.policy.skip_redundant_deployments
   default_ttl                   = each.value.policy.default_ttl
-  max_ttl                       = each.value.policy.max_ttl 
+  max_ttl                       = each.value.policy.max_ttl
 }
 
 locals {
   projects = (var.projects == null) ? {} : var.projects
   credentials = {
-    for k,v in local.projects : k => {
+    for k, v in local.projects : k => {
       credential = v.credential
     }
-    if v.credential != null 
+    if v.credential != null
   }
   policies = {
-    for k,v in local.projects : k => {
+    for k, v in local.projects : k => {
       policy = v.policy
     }
-    if v.policy != null 
+    if v.policy != null
   }
 }
 
